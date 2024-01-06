@@ -5,6 +5,7 @@ import { doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { db } from 'firebaseApp';
 import Loader from './Loader';
 import { toast } from 'react-toastify';
+import Comments from './Comments';
 
 export default function PostDetail() {
   const params = useParams();
@@ -33,32 +34,38 @@ export default function PostDetail() {
 
   useEffect(() => {
     if (params?.id) getPost(params?.id);
+    console.log(post);
   }, [params?.id]);
 
   return (
     <>
       <div className='post__detail'>
         {post ? (
-          <div className='post__box'>
-            <div className='post__title'>{post.title}</div>
-            <div className='post__profile-box'>
-              <div className='post__profile' />
-              <div className='post__author-name'>{post.email}</div>
-              <div className='post__date'>{post.createAt}</div>
-            </div>
-            <div className='post__utils-box'>
-              {post?.category && (
-                <div className='post__category'>{post?.category}</div>
-              )}
-              <div onClick={handelDelete} className='post__delete'>
-                삭제
+          <>
+            <div className='post__box'>
+              <div className='post__title'>{post.title}</div>
+              <div className='post__profile-box'>
+                <div className='post__profile' />
+                <div className='post__author-name'>{post.email}</div>
+                <div className='post__date'>{post.createAt}</div>
               </div>
-              <div className='post__edit'>
-                <Link to={`/posts/edit/${post?.id}`}>수정</Link>
+              <div className='post__utils-box'>
+                {post?.category && (
+                  <div className='post__category'>{post?.category}</div>
+                )}
+                <div onClick={handelDelete} className='post__delete'>
+                  삭제
+                </div>
+                <div className='post__edit'>
+                  <Link to={`/posts/edit/${post?.id}`}>수정</Link>
+                </div>
+              </div>
+              <div className='post__text post__text-pre-wrap'>
+                {post.content}
               </div>
             </div>
-            <div className='post__text post__text-pre-wrap'>{post.content}</div>
-          </div>
+            <Comments post={post} getPost={getPost} />
+          </>
         ) : (
           <Loader />
         )}
