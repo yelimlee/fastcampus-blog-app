@@ -6,7 +6,7 @@ export default function PostsPage() {
   return (
     <>
       <Header />
-      <PostList hasNavigation={false} />
+      <PostList hasNavigation={false} defaultTab='my' />
       <Footer />
     </>
   );

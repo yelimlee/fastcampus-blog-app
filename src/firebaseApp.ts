@@ -1,7 +1,8 @@
 import { FirebaseApp, getApp, initializeApp } from 'firebase/app';
 import 'firebase/app';
-export let app: FirebaseApp;
 import { getFirestore } from 'firebase/firestore';
+
+export let app: FirebaseApp;
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APK_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,

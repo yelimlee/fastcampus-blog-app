@@ -65,6 +65,12 @@ footer a:hover {
   color: black;
 }
 
+.footer__theme-btn {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
 /* post__navigation */
 .post__navigation {
   display: flex;
@@ -164,6 +170,14 @@ footer a:hover {
   color: gray;
 }
 
+.post__no-post {
+  padding: 24px;
+  text-align: center;
+  color: gray;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+}
+
 /* post detail */
 .post__detail .post__title {
   font-size: 36px;
@@ -183,6 +197,19 @@ footer a:hover {
 
 .post__detail .post__text {
   padding: 20px 0;
+}
+
+.post__text-pre-wrap {
+  white-space: pre-wrap;
+}
+
+.post__category {
+  color: gray;
+  border: 1px solid lightgray;
+  background: #f2f2f2;
+  padding: 0px 4px;
+  border-radius: 10px;
+  font-size: 12px;
 }
 
 /* profile */
@@ -420,6 +447,15 @@ input:checked + .carousel__slide-container .nav label {
   background-color: #1945a4;
 }
 
+.form select {
+  border: 1px solid lightgray;
+  max-width: 680px;
+  height: 40px;
+  padding: 0px 20px;
+  font-size: 16px;
+  border-radius: 0.3rem;
+}
+
 /* login form */
 
 .form--lg {
@@ -471,4 +507,57 @@ input:checked + .carousel__slide-container .nav label {
   border-radius: 50%;
   z-index: 9999;
   animation: rotation 1s linear infinite;
+}
+
+/* dark mode */
+
+.white {
+  transition: all 0.25s linear;
+  background-color: white;
+}
+
+.dark {
+  transition: all 0.25s linear;
+  background-color: #1e2937;
+  min-height: 100vh;
+}
+
+.dark a,
+.dark .form label,
+.dark .post__delete,
+.dark .profile__logout,
+.dark .form__title,
+.dark .post__navigation--active,
+.dark .post__title,
+.dark .post__author-name,
+.dark .footer__theme-btn,
+.dark .profile__name,
+.dark .comments__list {
+  color: white;
+}
+
+.dark a:hover,
+.dark a:focus,
+.dark .post__text,
+.dark .post__text--pre-wrap,
+.dark .profile__email,
+.dark .post__date,
+.dark .form__block,
+.dark .comment__date,
+.dark .comment__delete {
+  color: lightgray;
+}
+
+.dark .comment__delete:hover,
+.dark .comment__delete:focus {
+  color: white;
+}
+
+.dark .form__error {
+  color: #ff6a71;
+}
+
+.dark footer,
+.dark header {
+  background-color: #111827;
 }
